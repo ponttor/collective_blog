@@ -1,0 +1,8 @@
+= simple_form_for @post do |f|
+
+  = f.input :title
+  = f.input :body
+  = f.association :user, value: current_user.id, type: 'hidden'
+  = f.association :category
+
+  = f.button :submit, class: 'btn btn-success mt-4 btn-block', id: 'submit'

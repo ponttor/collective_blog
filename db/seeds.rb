@@ -4,4 +4,7 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+2.times do
+  Post.create(title: Faker::TvShows::TheITCrowd.character, body: Faker::TvShows::TheITCrowd.quote, user_id: 2 , category_id: 4 )
+end

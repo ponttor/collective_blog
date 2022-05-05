@@ -1,0 +1,10 @@
+
+<p><b>Title: </b><%= @post.title %></p>
+<p><b>Body: </b><%= @post.body %></p>
+<p><b>User Id: </b><%= @post.user.id %></p>
+<p><b>Caterogy: </b><%= @post.category.name %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_post_path(@post) %></li>
+  <li><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Do you really want to delete it?'} %></li>
+</ul>

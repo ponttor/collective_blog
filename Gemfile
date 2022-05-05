@@ -17,6 +17,8 @@ gem 'slim'
 gem 'slim_lint'
 gem 'rubocop-rails', require: false
 gem 'devise'
+gem 'faker'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
