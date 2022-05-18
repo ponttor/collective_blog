@@ -1,8 +1,8 @@
 = simple_form_for @post do |f|
 
-  = f.input :title
-  = f.input :body
-  = f.association :user, value: current_user.id, type: 'hidden'
-  = f.association :category
+  = f.input :title, label_html: { class: 'mt-2' }, required: true
+  = f.input :body, label_html: { class: 'mt-3' }, required: true
+  /= f.association :user, label: false, input_html: {class: 'visually-hidden'}, :selected => current_user.id
+  = f.association :category, label_html: { class: 'mt-3' }, required: true
 
-  = f.button :submit, class: 'btn btn-success mt-4 btn-block', id: 'submit'
+  = f.button :submit, class: 'btn-success mt-4 btn-block', id: 'submit'

@@ -5,6 +5,7 @@ ruby '3.0.2'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 gem 'puma', '~> 5.0'
+gem 'devise-i18n'
 gem 'rollbar'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'

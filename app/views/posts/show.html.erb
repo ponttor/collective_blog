@@ -1,10 +1,43 @@
+<div class="mt-4 mb-4">
+  <%= link_to "Все статьи", posts_path, class: "mt-3" %> <span class="text-muted"> / <%= @post.category.name %></span>
+</div>
 
-<p><b>Title: </b><%= @post.title %></p>
-<p><b>Body: </b><%= @post.body %></p>
-<p><b>User Id: </b><%= @post.user.id %></p>
-<p><b>Caterogy: </b><%= @post.category.name %></p>
+<h1 class="mb-4"><%= @post.title %></h1>
+<p class="mb-4"><%= @post.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_post_path(@post) %></li>
-  <li><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Do you really want to delete it?'} %></li>
-</ul>
+<%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@comment.post)}%>
+
+<% @post.comments.each do |comment| %>
+  <% next if comment.id.nil? %>
+  <div class="card mb-4 mt-4">
+    <div class="card-header small mb-2 d-flex">
+      <div id="comment-41">
+        <span class="font-weight-bold">
+          <%= comment.inspect %>
+        </span>
+        <span class="mx-2 font-weight-light">
+          <%= distance_of_time_in_words(@post.created_at) %>
+        </span>
+      </div>
+    </div>
+    <div class="card-body d-flex">
+      <div class="w-100">
+        <div class="mb-3">
+          <%= comment.content %>
+        </div>
+        <div class="small">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+  
+
+<%# <%= comment.content %> %>
+
+
+
+<%# <hr class="my-2"><div class="mb-2 m-4"><a class="d-block small text-muted" data-bs-toggle="collapse" href="#new_post_comment-41">Ответить</a><div class="collapse" data-bs-target="#new_post_comment-41" id="new_post_comment-41"><form class="simple_form new_post_comment" id="new_post_comment" novalidate="novalidate" action="/posts/980190969/comments" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="7zUvhA3zoC0VEJ_jMJlK5dH19eBOyD201wae5705QsZAEwi1ZYGfVYpmRZPlbRF7rpcxs437kymuXLtLFhWhqQ"><div class="form-group text required post_comment_content"><textarea class="form-control text required" name="post_comment[content]" id="post_comment_content"></textarea></div><div class="form-group hidden post_comment_parent_id"><input class="form-control hidden" value="41" type="hidden" name="post_comment[parent_id]" id="post_comment_parent_id"></div><input type="submit" name="commit" value="Создать Комментарий" class="btn btn-primary mb-4" data-disable-with="Создать Комментарий"></form></div></div></div> %>
+

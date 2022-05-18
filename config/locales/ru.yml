@@ -1,0 +1,39 @@
+ru:
+  title: Коллективный блог
+  edit: Редактировать статью
+  comments_content: Комментарий
+  
+  header: 
+    logo: Логотип
+    new_post: Добавить статью
+    logout: Выйти 
+    signin: Войти
+    signup: Регистрация
+  new_page:
+    title: Новая статья
+    lable_name: Заголовок
+    lable_body: Содержание
+    lable_category: Категория
+    submit: Создать статью
+
+  simple_form:
+    labels:
+      post:
+        title: 'Заголовок'
+        body: "Содержание"
+        category: "Категория"
+
+      user:
+        email: 'Email'
+        password: "Пароль"
+
+  log_out: Выход
+  sign_in: Вход
+  sign_up: Регистрация
+
+
+  helpers:
+    submit:
+      post:
+        create: "Создать статью"
+        update: "Обновить статью"
