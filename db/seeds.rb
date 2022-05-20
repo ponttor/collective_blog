@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 
-2.times do
+8.times do
   Post.create(title: Faker::TvShows::TheITCrowd.character, body: Faker::TvShows::TheITCrowd.quote, user_id: 2 , category_id: 4 )
+  # User.create(title: Faker::TvShows::TheITCrowd.character, body: Faker::TvShows::TheITCrowd.quote, user_id: 2 , category_id: 4 )
 end

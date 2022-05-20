@@ -2,13 +2,18 @@ class Posts::CommentsController < ApplicationController
   before_action :set_post, only: %i[create destroy update edit]
   before_action :set_comment, only: %i[destroy update edit]
 
-  def create
-    @comment = @post.comments.build(comment_params)
+  def create    
+    @comment = current_user.comments.build(comment_params)
+
     if @comment.save
-      redirect_to post_path(@post), notice: 'Comment was successfully added.'
+      redirect_to post_comments_path(@post), notice: 'Comment was successfully added.'
     else
       render 'posts/show', alert: 'There were errors to add comment to post.'
     end
+  end
+
+  def new
+    @comment = current_user.comments.build
   end
 
   def destroy
@@ -29,7 +34,7 @@ class Posts::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:post_comment).permit(:content, :post_id)
+    params.require(:post_comment).permit(:content, :post_id, :user_id)
   end
 
   def set_comment
@@ -38,5 +43,9 @@ class Posts::CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 end

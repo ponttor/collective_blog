@@ -5,7 +5,7 @@
 <h1 class="mb-4"><%= @post.title %></h1>
 <p class="mb-4"><%= @post.body %></p>
 
-<%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@comment.post)}%>
+<%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@post)}%>
 
 <% @post.comments.each do |comment| %>
   <% next if comment.id.nil? %>
