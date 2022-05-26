@@ -20,6 +20,8 @@ gem 'rubocop-rails', require: false
 gem 'devise'
 gem 'faker'
 gem 'simple_form'
+gem 'dotiw'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -4,9 +4,9 @@ class Posts::CommentsController < ApplicationController
 
   def create    
     @comment = current_user.comments.build(comment_params)
-
+    @comment.post_id = @post.id 
     if @comment.save
-      redirect_to post_comments_path(@post), notice: 'Comment was successfully added.'
+      redirect_to post_path(@post), notice: 'Comment was successfully added.'
     else
       render 'posts/show', alert: 'There were errors to add comment to post.'
     end

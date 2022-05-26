@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = @post.comments.build
     @user = current_user
+    @like = @post.likes.build
   end
 
   def new

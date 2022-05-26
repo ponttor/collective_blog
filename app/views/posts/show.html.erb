@@ -5,6 +5,38 @@
 <h1 class="mb-4"><%= @post.title %></h1>
 <p class="mb-4"><%= @post.body %></p>
 
+<i class="fa-light fa-thumbs-up"></i>
+<i class="fa-thin fa-thumbs-up"></i>
+<i class="fa-solid fa-thumbs-up"></i>
+<i class="fa-duotone fa-thumbs-up"></i>
+
+
+<% if user_signed_in? %>
+  <% like = current_user.likes.find_by(post: @post) %> 
+<% end %>
+
+<div class="d-flex justify-content-between mt-5 mb-0" >
+  <div><%= @post.user.email%> около <%= distance_of_time_in_words(@post.created_at, Time.now, true, highest_measure_only: true) %></div>
+  <div class="d-flex">
+    <div class="me-1" ><%= @post.likes.count %></div>
+    
+    <% if like.nil? %> 
+      <% if user_signed_in?%>
+        <div><%= link_to '', post_likes_path(@post), method: :post, class: "fa-solid fa-thumbs-up" %></div>
+      <% else %>
+        <div><i class="fa-solid fa-thumbs-up"></i></div>
+      <% end %>
+    <% else %>
+      <% if user_signed_in?%>
+        <div><%= link_to 'Delete like', post_like_path(@post, like), method: :delete %></div>
+      <% else %>
+        <div><%= link_to 'Delete like' %></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
 <%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@post)}%>
 
 <% @post.comments.each do |comment| %>
@@ -13,10 +45,10 @@
     <div class="card-header small mb-2 d-flex">
       <div id="comment-41">
         <span class="font-weight-bold">
-          <%= comment.inspect %>
+          <%= comment.user.email %>
         </span>
         <span class="mx-2 font-weight-light">
-          <%= distance_of_time_in_words(@post.created_at) %>
+          <%= distance_of_time_in_words_to_now(comment.created_at) %>
         </span>
       </div>
     </div>
@@ -32,12 +64,3 @@
   </div>
 
 <% end %>
-
-  
-
-<%# <%= comment.content %> %>
-
-
-
-<%# <hr class="my-2"><div class="mb-2 m-4"><a class="d-block small text-muted" data-bs-toggle="collapse" href="#new_post_comment-41">Ответить</a><div class="collapse" data-bs-target="#new_post_comment-41" id="new_post_comment-41"><form class="simple_form new_post_comment" id="new_post_comment" novalidate="novalidate" action="/posts/980190969/comments" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="7zUvhA3zoC0VEJ_jMJlK5dH19eBOyD201wae5705QsZAEwi1ZYGfVYpmRZPlbRF7rpcxs437kymuXLtLFhWhqQ"><div class="form-group text required post_comment_content"><textarea class="form-control text required" name="post_comment[content]" id="post_comment_content"></textarea></div><div class="form-group hidden post_comment_parent_id"><input class="form-control hidden" value="41" type="hidden" name="post_comment[parent_id]" id="post_comment_parent_id"></div><input type="submit" name="commit" value="Создать Комментарий" class="btn btn-primary mb-4" data-disable-with="Создать Комментарий"></form></div></div></div> %>
-
