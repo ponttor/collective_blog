@@ -2,6 +2,8 @@ ru:
   title: Коллективный блог
   edit: Редактировать статью
   comments_content: Комментарий
+  like_count: Понравилось
+  split: "  "
   
   header: 
     logo: Логотип
