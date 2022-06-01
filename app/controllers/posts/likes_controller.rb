@@ -1,6 +1,5 @@
 class Posts::LikesController < ApplicationController
   def create
-    # @like = current_user.likes.build(params[:post_id])
     @like = current_user.likes.build
     @like.post_id = params[:post_id]
     
