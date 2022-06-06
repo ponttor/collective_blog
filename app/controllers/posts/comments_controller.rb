@@ -2,7 +2,7 @@ class Posts::CommentsController < ApplicationController
   before_action :set_post, only: %i[create destroy update edit]
   before_action :set_comment, only: %i[destroy update edit]
 
-  def create    
+  def create   
     @comment = current_user.comments.build(comment_params)
     @comment.post_id = @post.id 
     if @comment.save
@@ -34,7 +34,7 @@ class Posts::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:post_comment).permit(:content, :post_id, :user_id)
+    params.require(:post_comment).permit(:content, :parent_id)
   end
 
   def set_comment

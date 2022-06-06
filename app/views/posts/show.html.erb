@@ -11,7 +11,7 @@
 <% end %>
 
 <div class="d-flex justify-content-between mt-5 mb-0" >
-  <div><%= @post.user.email%> <%= distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true) %></div>
+  <div><%= @post.user.email %> <%= distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true) %></div>
   <div class="d-flex">
     <div class="me-1" ><%= @post.likes.count %></div>
     
@@ -31,49 +31,14 @@
   </div>
 </div>
 
-
-<%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@post)}%>
-
-<% @post.comments.each do |comment| %>
-  <% next if comment.id.nil? %>
-  <div class="card mb-4 mt-4">
-    <div class="card-header small mb-2 d-flex">
-      <div id="comment">
-        <span class="font-weight-bold">
-          <%= comment.user.email %>
-        </span>
-        <span class="mx-2 font-weight-light">
-          <%= distance_of_time_in_words_to_now(comment.created_at) %>
-        </span>
-      </div>
-    </div>
-    <div class="card-body d-flex">
-      <div class="w-100">
-        <div class="mb-3">
-          <%= comment.content %>
-       
-
-            <%= comment.id %>
- 
-          <p>
-            <a class="" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id.to_s %>" aria-expanded="false" aria-controls="collapseExample">
-              <%= t('reply') %>
-            </a>
-          </p>
-          <div class="collapse" id="comment-<%= comment.id.to_s %>">
-            <div class="card card-body">
-
-              <%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@post)}%>
-
-            </div>
-          </div>
+<%= render partial:'posts/comments/form', locals: {comment: @comment, url: post_comments_path(@post)} %>
 
 
-        </div>
-        <div class="small">
-        </div>
-      </div>
-    </div>
-  </div>
 
+<% if @post.comments.any? %>
+  <section class="mb-4">
+    <%= nested_comments(@post.comments.arrange(order: :created_at)) %>
+  </section>
 <% end %>
+
+
