@@ -1,0 +1,54 @@
+  
+  
+  <div class="card mb-4 mt-4">
+    <div class="card-header small mb-2 d-flex">
+      <div id="comment">
+        <span class="font-weight-bold">
+          <%= comment.user.email %>
+        </span>
+        <span class="mx-2 font-weight-light">
+          <%= distance_of_time_in_words_to_now(comment.created_at) %>
+        </span>
+      </div>
+    </div>
+    <div class="card-body d-flex">
+      <div class="w-100">
+        <div class="mb-3">
+          <%= comment.content %>
+            <%= comment.id %>
+          <p>
+            <% if user_signed_in?%>
+              <a class="" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id.to_s %>" aria-expanded="false" aria-controls="collapseExample">
+                <%= t('reply') %>
+              </a>
+            <% else %>
+                <a class="d-block small text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#sign_out-<%= comment.id.to_s %>" aria-expanded="false" aria-controls="collapseExample">
+                <%= t('reply') %>
+              </a>
+            <% end %>
+          </p>
+
+          <div class="collapse" id="sign_out-<%= comment.id.to_s %>">
+            <div class="card card-body">
+              <div><span>Requires</span><%= link_to 'Sign in', user_session_path, class: "ms-1" %></div>
+            </div>
+          </div>
+
+          <div class="collapse" id="comment-<%= comment.id.to_s %>">
+            <div class="card card-body">
+              <%= render partial:'posts/comments/form', locals: {comment: @comment, parent_id: comment.id, url: post_comments_path(@post)} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% nested_comments.each do |comment, nested_comments|%>
+    <div class="ms-4"><%= render 'posts/comments/comment', comment: comment, nested_comments: nested_comments %></div>
+  <%end%>
+          
+ 
+ 
+ 
+ 

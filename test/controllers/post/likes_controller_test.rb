@@ -1,11 +1,27 @@
 require "test_helper"
 
 class LikesControllerTest < ActionDispatch::IntegrationTest
-  # test "should create like" do
-  #   assert true
+
+  # setup do
+  #   sign_in users(:one)
+  #   @post1 = posts(:one)
+  #   @like1 = post_likes(:one)
   # end
 
-  # test "should destroy like" do
-  #   assert true
+  # test '#create like' do
+  #   post post_likes_url(@post1)
+
+  #   like = PostLike.find_by(user: @user, post: @post2)
+  #   assert { like }
   # end
+
+  # test '#destroy as User' do
+
+  #   delete post_like_url(@post1, @like1)
+
+  #   like = PostLike.find_by(user: @user, post: @post1)
+  #   assert { !like }
+  # end
+
+
 end

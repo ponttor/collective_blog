@@ -5,9 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-  email: q@q.qq
-  encrypted_password: qwerty
+  email: quq@test.qq
+  # encrypted_password: qwerty
 
 two: 
   email: e@e.ee
-  encrypted_password: qwerty
+  # encrypted_password: qwerty

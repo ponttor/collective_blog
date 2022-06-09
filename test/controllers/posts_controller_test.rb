@@ -2,11 +2,11 @@ require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:one)
     @post = posts(:one)
     @attrs = {
       title: Faker::TvShows::TheITCrowd.character,
       body: Faker::TvShows::TheITCrowd.quote,
-    
     }
   end
   
@@ -27,7 +27,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   # test "should create post" do
   #   post posts_url, params: { post: @attrs }
-  #   post = Post.find_by! title: @attrs[:title]
+  #   post = Post.find_by title: @attrs[:title]
   #   assert_redirected_to post_url(post)
   # end
 
@@ -43,9 +43,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert { @post.title == @attrs[:title] }
   end
 
-  # test "should destroy post" do
-  #   delete post_url(@post)
-  #   assert { !Post.exists? @post.id }
-  #   assert_redirected_to post_url  
-  # end
+  test "should destroy post" do
+    delete post_url(@post)
+    assert { !Post.exists? @post.id }
+    assert_redirected_to posts_url  
+  end
 end

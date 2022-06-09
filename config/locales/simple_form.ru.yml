@@ -5,6 +5,11 @@ ru:
     required:
       text: 'required'
       mark: '*'
+    helpers:
+      submit:
+        user:
+          create: "Add"
+          update: "Save Changes"
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
