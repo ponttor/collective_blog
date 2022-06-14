@@ -14,22 +14,7 @@
   <div><%= @post.user.email %> <%= distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true) %></div>
   <div class="d-flex">
     <div class="me-1"><%= @post.likes.count %></div>
-    
-    <% if like.nil? %> 
-      <% if user_signed_in?%>
-        <div><%= link_to '', post_likes_path(@post), method: :post, class: "far fa-thumbs-up" %></div>
-      <% else %>
-        <div><%= link_to '', new_user_session_path, class: "far fa-thumbs-up" %></div>
-        
-      <% end %>
-    <% else %>
-      <% if user_signed_in?%>
-        <div><%= link_to '', post_like_path(@post, like), method: :delete, class: "fas fa-thumbs-up" %></div>
-      <% else %>
-              <div><%= link_to '', new_user_session_path, class: "far fa-thumbs-up" %></div>
-
-      <% end %>
-    <% end %>
+    <div><%= link_to '', post_likes_path(@post), method: :post, class: "far fa-thumbs-up" %></div>  
   </div>
 </div>
 

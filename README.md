@@ -2,7 +2,6 @@
 [![Actions Status](https://github.com/ponttor/rails-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/ponttor/rails-project-lvl2/actions)
 [![Actions Status](https://github.com/ponttor/rails-project-lvl2/workflows/lint-test/badge.svg)](https://github.com/ponttor/rails-project-lvl1/actions)
 
-
 # Blog
 
 User can read posts and comments.  
@@ -10,6 +9,10 @@ After registration he can create, modify and delete his own posts, as well as co
 Comments can be modified and likes - be revoked.
 
 *Within educational program 'Ruby on Rails developer' by [Hexlet](https://ru.hexlet.io/)*
+
+# Deploy
+
+[Heroku](https://gentle-bayou-16285.herokuapp.com)
 
 ## System dependencies
 
@@ -22,10 +25,8 @@ Comments can be modified and likes - be revoked.
 ## Installation
 
 ```ruby
-make setup
 make test # run tests
 make start # run server
 
-make seed # load fixtures
 ```
 

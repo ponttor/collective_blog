@@ -1,3 +1,53 @@
 en:
   title: Collective blog
+  edit: Edit post
+  comments_content: Comment
+  like_count: likes
+  reply: Reply
+  split: "  "
+  all: "All posts"
+  confirm_post: "Create post"
+  confirm_comment: "Create comment"
+
+  
+  header: 
+    logo: logo
+    new_post: Add post
+    logout: Log out 
+    signin: Sign in
+    signup: Sign up
+  new_page:
+    title: New post
+    lable_name: Title
+    lable_body: Body
+    lable_category: Category
+    submit: Create post
+
+  simple_form:
+    labels:
+      post:
+        title: Title
+        body: Body
+        category: Category
+
+      user:
+        email: Email
+        password: Password
+
+  log_out: Log out
+  sign_in: Sign in
+  sign_up: Sign up
+
+
+  helpers:
+    submit:
+      post:
+        create: Create post
+        update: Update post
+
+  datetime:
+    dotiw:
+      words_connector: " "
+      last_word_connector: " "
+      two_words_connector: " "
 

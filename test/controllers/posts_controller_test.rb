@@ -4,9 +4,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @post = posts(:one)
+    @category = categories(:one)
     @attrs = {
       title: Faker::TvShows::TheITCrowd.character,
       body: Faker::TvShows::TheITCrowd.quote,
+      category_id: @category.id
     }
   end
   
@@ -25,11 +27,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should create post" do
-  #   post posts_url, params: { post: @attrs }
-  #   post = Post.find_by title: @attrs[:title]
-  #   assert_redirected_to post_url(post)
-  # end
+  test "should create post" do
+    post posts_url, params: { post: @attrs }
+    post = Post.find_by title: @attrs[:title]
+    assert_redirected_to post_url(post)
+  end
 
   test "should edit post" do
     get edit_post_url(@post)

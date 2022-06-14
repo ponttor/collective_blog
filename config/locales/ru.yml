@@ -6,6 +6,8 @@ ru:
   reply: Ответить
   split: "  "
   all: "Все статьи"
+  confirm_post: "Добавить Статью"
+  confirm_comment: "Создать Комментарий"
 
   
   header: 
