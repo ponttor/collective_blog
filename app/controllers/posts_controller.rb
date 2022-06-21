@@ -1,5 +1,6 @@
-class PostsController < ApplicationController
+# frozen_string_literal: true
 
+class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
@@ -41,10 +42,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    
-    if @post.destroy
-      redirect_to posts_path, status: :see_other
-    end
+
+    redirect_to posts_path, status: :see_other if @post.destroy
   end
 
   private

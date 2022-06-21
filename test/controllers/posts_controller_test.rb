@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -11,43 +13,43 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       category_id: @category.id
     }
   end
-  
-  test "should get index" do
+
+  test 'should get index' do
     get posts_url
     assert_response :success
   end
 
-  test "should show post" do
+  test 'should show post' do
     get post_url(@post)
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_post_url
     assert_response :success
   end
 
-  test "should create post" do
+  test 'should create post' do
     post posts_url, params: { post: @attrs }
     post = Post.find_by title: @attrs[:title]
     assert_redirected_to post_url(post)
   end
 
-  test "should edit post" do
+  test 'should edit post' do
     get edit_post_url(@post)
-    assert_response :success  
+    assert_response :success
   end
 
-  test "should update post" do
+  test 'should update post' do
     patch post_url(@post), params: { post: @attrs }
     assert_redirected_to post_url(@post)
     @post.reload
     assert { @post.title == @attrs[:title] }
   end
 
-  test "should destroy post" do
+  test 'should destroy post' do
     delete post_url(@post)
     assert { !Post.exists? @post.id }
-    assert_redirected_to posts_url  
+    assert_redirected_to posts_url
   end
 end

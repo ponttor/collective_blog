@@ -1,7 +1,8 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
-  
   setup do
     sign_in users(:one)
     @post = posts(:one)
@@ -11,14 +12,14 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  test "should create comment" do
+  test 'should create comment' do
     post post_comments_url(@post), params: { post_comment: @attrs }
     assert_redirected_to @post
     comment = PostComment.find_by @attrs
-    assert {comment}
+    assert { comment }
   end
 
-  test "should update comment" do
+  test 'should update comment' do
     patch post_comment_path(@post, @comment), params: { post_comment: @attrs }
     assert_redirected_to @post
     @comment.reload

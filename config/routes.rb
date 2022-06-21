@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
   resources :categories
@@ -6,9 +8,8 @@ Rails.application.routes.draw do
 
   resources :posts do
     scope module: 'posts' do
-      resources :likes, only: [:create, :destroy]
-      resources :comments, only: [:create, :edit, :update, :destroy,]
+      resources :likes, only: %i[create destroy]
+      resources :comments, only: %i[create edit update destroy]
     end
   end
-
 end

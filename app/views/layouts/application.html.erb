@@ -14,8 +14,13 @@
   <body>
     <div class="container">
       <%= render 'home/header' %>
-      <% if notice %>
-        <%= render 'layouts/alerts' %>
+      <% if flash.any? %>
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
       <% end %>
       <%= yield %>
       <% render 'home/footer' %>
