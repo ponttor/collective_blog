@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies
         run: make install
 
+      - name: Install node packages
+        run: yarn install --pure-lockfile
+
       - name: Run Rubocop and Slim lint
         run: make lint
       
