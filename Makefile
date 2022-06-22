@@ -1,13 +1,25 @@
-
 setup:
 	bin/setup
 	bin/rails db:fixtures:load
 
-lint:
-	bundle exec rubocop
+install:
+	bundle install
 
 test:
-	bin/rails test
+	bundle exec rake test
+
+lint:
+	bundle exec rubocop
+	bundle exec slim-lint app/views/
+
+correct:
+	bundle exec rubocop -A
+
+start:
+	heroku local -p 3000
+
+deploy:
+	git push heroku main
 
 brake:
 	bundle exec brakeman -q -w2
@@ -23,9 +35,6 @@ webpack:
 clean:
 	rake assets:clobber
 
-start:
-	bin/rails s
-
 dbm:
 	bin/rails db:migrate
 
@@ -37,9 +46,6 @@ seed:
 
 push:
 	git push -u origin master
-
-deploy:
-	git push heroku master
 
 heroku-start:
 	heroku local
@@ -58,5 +64,4 @@ heroku-logs:
 
 routes:
 	bin/rails routes -g 'root|landing|devise|post|comment|like'
-
 .PHONY: test
