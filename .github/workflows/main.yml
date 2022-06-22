@@ -20,7 +20,7 @@ jobs:
         run: make install
 
       - name: Install node packages
-        run: yarn install --pure-lockfile
+        run: yarn install
 
       - name: Run Rubocop and Slim lint
         run: make lint
