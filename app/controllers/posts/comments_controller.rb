@@ -9,9 +9,9 @@ module Posts
       @comment = current_user.comments.build(comment_params)
       @comment.post_id = @post.id
       if @comment.save
-        redirect_to post_path(@post), notice: 'Comment was successfully added.'
+        redirect_to post_path(@post), notice: t('comment_created')
       else
-        render 'posts/show', alert: 'There were errors to add comment to post.'
+        render 'posts/show', alert: t('comment_error')
       end
     end
 
@@ -21,14 +21,14 @@ module Posts
 
     def destroy
       @comment.destroy
-      redirect_to post_path(@comment.post), notice: 'Comment was successfully destroyed.'
+      redirect_to post_path(@comment.post), notice: t('comment_deleted')
     end
 
     def edit; end
 
     def update
       if @comment.update(comment_params)
-        redirect_to post_path(@comment.post), notice: 'Comment was successfully updated.'
+        redirect_to post_path(@comment.post), notice: t('comment_updated')
       else
         render :edit
       end

@@ -2,6 +2,10 @@ en:
   title: Collective blog
   edit: Edit post
   comments_content: Comment
+  comment_created: Comment was successfully added
+  comment_error: There were errors to add comment to post
+  comment_deleted: Comment was successfully destroyed
+  comment_deleted: Comment was successfully updated
   like_count: likes
   reply: Reply
   split: "  "

@@ -2,6 +2,10 @@ ru:
   title: Коллективный блог
   edit: Редактировать статью
   comments_content: Комментарий
+  comment_created: Комментарий был успешно создан
+  comment_error: Ошибка при создании комментария
+  comment_deleted: Комментарий был успешно удален
+  comment_deleted: Комментарий был успешно обновлен
   like_count: Понравилось
   reply: Ответить
   split: "  "
