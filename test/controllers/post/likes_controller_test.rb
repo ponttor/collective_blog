@@ -19,7 +19,6 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test '#destroy as User' do
     delete post_like_url(@post1, @like1)
-
     like = PostLike.find_by(user: @user, post: @post1)
     assert { !like }
   end
