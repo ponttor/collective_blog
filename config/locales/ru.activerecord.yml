@@ -1,0 +1,24 @@
+ru:
+  activerecord:
+    attributes:
+      post:
+        title: Заголовок
+        body: Содержание
+        category: Категория
+    errors:
+      models:
+        post: 
+          attributes:
+            title:
+              blank: не может быть пустым
+            body:
+              blank: не может быть пустым
+              too_short: недостаточной длины (не может быть меньше 50 символов)
+            category:
+              required: не может отсутствовать 
+      messages:
+        blank: не может быть пустым
+        invalid: имеет неверное значение
+
+
+translation missing: ru.activerecord.errors.models.post.attributes.body.too_short

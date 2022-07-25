@@ -15,7 +15,6 @@
       <div class="w-100">
         <div class="mb-3">
           <%= comment.content %>
-            <%= comment.id %>
           <p>
             <% if user_signed_in?%>
               <a class="" type="button" data-bs-toggle="collapse" data-bs-target="#comment-<%= comment.id.to_s %>" aria-expanded="false" aria-controls="collapseExample">

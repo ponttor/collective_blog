@@ -13,7 +13,10 @@ en:
   confirm_post: "Create post"
   confirm_comment: "Create comment"
 
-  
+  messages:
+    post_created: Post was successfully created
+    post_updated: Post was successfully updated
+
   header: 
     logo: logo
     new_post: Add post
@@ -54,4 +57,12 @@ en:
       words_connector: " "
       last_word_connector: " "
       two_words_connector: " "
+  helpers:
+    submit:
+      post:
+        create: "Create post"
+  helpers:
+    submit:
+      comment:
+        create: "Create post"
 

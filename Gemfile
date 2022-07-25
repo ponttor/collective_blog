@@ -24,6 +24,8 @@ gem 'rubocop-rails', require: false
 gem 'simple_form'
 gem 'slim'
 gem 'slim_lint'
+gem 'slim-rails', '~> 3.1', '>= 3.1.1'
+gem 'html2slim'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

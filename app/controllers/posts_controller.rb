@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def show
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: t('messages.post_created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: t('messages.post_updated')
     else
       render :edit, status: :unprocessable_entity
     end

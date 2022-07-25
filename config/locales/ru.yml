@@ -9,11 +9,14 @@ ru:
   like_count: Понравилось
   reply: Ответить
   split: "  "
-  all: "Все статьи"
+  all: Все статьи
   confirm_post: "Добавить Статью"
   confirm_comment: "Создать Комментарий"
 
-  
+  messages:
+    post_created: Пост успешно создан
+    post_updated: Пост успешно обновлен
+
   header: 
     logo: Логотип
     new_post: Добавить статью
@@ -48,10 +51,17 @@ ru:
       post:
         create: "Создать статью"
         update: "Обновить статью"
-
+      post_comment: 
+        create: "Создать комментарий"
+      user: "Вход"
+  support:
+    array:
+      two_words_connector: " и "
   datetime:
     dotiw:
       words_connector: " "
       last_word_connector: " "
       two_words_connector: " "
+
+
 

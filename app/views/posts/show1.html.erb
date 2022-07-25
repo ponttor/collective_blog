@@ -13,8 +13,9 @@
 <div class="d-flex justify-content-between mt-5 mb-0" >
   <div><%= @post.creator.email %> <%= distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true) %></div>
   <div class="d-flex">
-    <div class="me-1"><%= @post.likes.count %></div>
-    <div><%= link_to '', post_likes_path(@post), method: :post, class: "far fa-thumbs-up" %></div>  
+    <div class="me-2"><%= @post.likes.count %></div>
+    <div><%= button_to post_likes_path(@post), method: :post %></div>
+       <div><i class="far fa-thumbs-up"></div>
   </div>
 </div>
 

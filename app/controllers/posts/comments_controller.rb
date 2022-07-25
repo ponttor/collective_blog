@@ -11,20 +11,15 @@ module Posts
       if @comment.save
         redirect_to post_path(@post), notice: t('comment_created')
       else
-        render 'posts/show', alert: t('comment_error')
+        flash.now[:notice] = t('messages.comment_can_not_be_empty')
+        render 'posts/show', status: :unprocessable_entity
       end
-    end
-
-    def new
-      @comment = current_user.comments.build
     end
 
     def destroy
       @comment.destroy
       redirect_to post_path(@comment.post), notice: t('comment_deleted')
     end
-
-    def edit; end
 
     def update
       if @comment.update(comment_params)
