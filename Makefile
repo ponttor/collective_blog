@@ -2,6 +2,8 @@ setup:
 	bin/setup
 	bin/rails db:fixtures:load
 
+install:
+	bundle install
 
 test:
 	bundle exec rake test
