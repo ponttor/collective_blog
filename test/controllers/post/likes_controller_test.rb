@@ -6,20 +6,20 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @user = users(:one)
-    @post_1 = posts(:one)
-    @like_1 = post_likes(:one)
+    @post1 = posts(:one)
+    @like1 = post_likes(:one)
   end
 
   test '#create like' do
-    post post_likes_url(@post_1)
+    post post_likes_url(@post1)
 
-    like = PostLike.find_by(user: @user, post: @post_1)
+    like = PostLike.find_by(user: @user, post: @post1)
     assert { like }
   end
 
   test '#destroy like' do
-    delete post_like_url(@post_1, @like_1)
-    like = PostLike.find_by(user: @user, post: @post_1)
+    delete post_like_url(@post1, @like1)
+    like = PostLike.find_by(user: @user, post: @post1)
     assert { !like }
   end
 end

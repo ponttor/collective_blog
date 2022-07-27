@@ -1,6 +1,6 @@
 = simple_form_for comment, url: url do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  / = f.error_notification
+  / = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   - if local_assigns[:parent_id]
     = f.input :parent_id, as: :hidden, input_html: { value: parent_id }
   = f.input :content, label: t('comments_content'), required: false, label_html: { class: 'lead mb-3' }

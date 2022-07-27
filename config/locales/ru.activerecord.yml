@@ -21,4 +21,3 @@ ru:
         invalid: имеет неверное значение
 
 
-translation missing: ru.activerecord.errors.models.post.attributes.body.too_short

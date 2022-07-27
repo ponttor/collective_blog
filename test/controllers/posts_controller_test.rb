@@ -57,7 +57,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   #   @attrs[:body] = nil
   #   post = Post.find_by @attrs
-    # assert_response :unprocessable_entity
+  # assert_response :unprocessable_entity
 
   #   assert { !post }
   # end
