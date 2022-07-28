@@ -20,4 +20,7 @@ start:
 deploy:
 	git push heroku main
 
+cs:
+	bin/rails console --sandbox
+
 .PHONY: test
