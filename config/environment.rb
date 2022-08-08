@@ -5,7 +5,7 @@ require_relative 'application'
 require_relative 'rollbar'
 
 # Initialize the Rails application.
-Rails.application.initialize!
+# Rails.application.initialize!
 
 notify = lambda do |e|
   Rollbar.with_config(use_async: false) do
