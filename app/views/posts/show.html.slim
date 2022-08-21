@@ -10,12 +10,12 @@ p.mb-4
 - if user_signed_in?
   - like = current_user.likes.find_by(post: @post)
 .d-flex.justify-content-between.mt-5.mb-0
-  div.d-flex
+  .d-flex
     div
       = @post.creator.email
-    div.ms-2
+    .ms-2
       = distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true)
-  div.d-flex
+  .d-flex
     span
       = @post.likes.count
     div
@@ -28,12 +28,6 @@ p.mb-4
       - else
         = link_to new_user_session_path, class: 'btn btn-sm' do
           i.far.fa-thumbs-up
-      / - if @current_user_like
-      /   = button_to post_like_path(@post, @current_user_like), method: :delete, class: 'btn btn-sm' do
-      /     i.fas.fa-thumbs-up
-      / - else
-      /   = button_to post_likes_path(@post), method: :post, class: 'btn btn-sm' do
-      /     i.far.fa-thumbs-up
 
 - if user_signed_in?
   = render partial: 'posts/comments/form', locals: { comment: @comment, url: post_comments_path(@post) }
