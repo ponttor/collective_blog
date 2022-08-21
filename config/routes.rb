@@ -2,14 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :categories
 
   root 'posts#index'
 
-  resources :posts do
+  resources :posts, only: %i[show new create] do
     scope module: 'posts' do
       resources :likes, only: %i[create destroy]
-      resources :comments, only: %i[create edit update destroy]
+      resources :comments, only: %i[create]
     end
   end
 end

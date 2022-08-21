@@ -10,11 +10,13 @@ p.mb-4
 - if user_signed_in?
   - like = current_user.likes.find_by(post: @post)
 .d-flex.justify-content-between.mt-5.mb-0
-  div
-    = @post.creator.email
-    = distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true)
-  .d-flex
-    .span
+  div.d-flex
+    div
+      = @post.creator.email
+    div.ms-2
+      = distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true)
+  div.d-flex
+    span
       = @post.likes.count
     div
       - if user_signed_in? && like

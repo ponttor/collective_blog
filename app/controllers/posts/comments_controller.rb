@@ -7,9 +7,10 @@ module Posts
       @comment = current_user.comments.build(comment_params)
       @comment.post_id = @post.id
       if @comment.save
-        redirect_to post_path(@post), notice: t('comment_created')
+        redirect_to post_path(@post), flash: { info: t('comment_created') }
       else
-        redirect_to post_path(@post), notice: t('messages.comment_can_not_be_empty')
+        redirect_to post_path(@post), flash: { danger: t('messages.comment_can_not_be_empty') }
+
       end
     end
 

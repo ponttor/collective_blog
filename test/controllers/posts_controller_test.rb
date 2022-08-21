@@ -14,7 +14,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'show posts' do
-    get posts_url
+    get root_url
     assert_response :success
   end
 
@@ -52,38 +52,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert { !post }
   end
 
-  # test 'create new post without body' do
-  #   sign_in users(:one)
-
-  #   @attrs[:body] = nil
-  #   post = Post.find_by @attrs
-  # assert_response :unprocessable_entity
-
-  #   assert { !post }
-  # end
-
-  test 'edit post' do
+  test 'create new post without body' do
     sign_in users(:one)
 
-    get edit_post_url(@post)
-    assert_response :success
-  end
+    @attrs[:body] = nil
+    post = Post.find_by @attrs
+    # assert_response :unprocessable_entity
 
-  test 'update post' do
-    sign_in users(:one)
-
-    patch post_url(@post), params: { post: @attrs }
-    assert_redirected_to post_url(@post)
-    @post.reload
-    assert { @post.title == @attrs[:title] }
-    assert { @post.body == @attrs[:body] }
-  end
-
-  test 'destroy post' do
-    sign_in users(:one)
-
-    delete post_url(@post)
-    assert { !Post.exists? @post.id }
-    assert_redirected_to posts_url
+    assert { !post }
   end
 end

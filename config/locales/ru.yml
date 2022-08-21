@@ -3,8 +3,8 @@ ru:
   edit: Редактировать статью
   comments_content: Комментарий
   comment_created: Комментарий был успешно создан
-  messages.comment_can_not_be_empty: Комментарий не может быть пустым
   comment_error: Ошибка при создании комментария
+  login_require: Необходима аутентификация
   comment_deleted: Комментарий был успешно удален
   comment_deleted: Комментарий был успешно обновлен
   like_count: Понравилось
@@ -17,6 +17,8 @@ ru:
   messages:
     post_created: Пост успешно создан
     post_updated: Пост успешно обновлен
+    comment_can_not_be_empty: Комментарий не может быть пустым
+
 
   header: 
     logo: Логотип
@@ -49,6 +51,9 @@ ru:
 
   helpers:
     submit:
+      create: "Создать пользователя"
+      user: 
+        create: "Регистрация прошла успешно"
       post:
         create: "Создать статью"
         update: "Обновить статью"
@@ -63,6 +68,5 @@ ru:
       words_connector: " "
       last_word_connector: " "
       two_words_connector: " "
-
 
 

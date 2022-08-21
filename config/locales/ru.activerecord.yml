@@ -7,6 +7,10 @@ ru:
         category: Категория
     errors:
       models:
+        user:
+          attributes:
+            email:
+              taken: Пользователь с такой почтой уже существует
         post: 
           attributes:
             title:
@@ -19,5 +23,3 @@ ru:
       messages:
         blank: не может быть пустым
         invalid: имеет неверное значение
-
-
