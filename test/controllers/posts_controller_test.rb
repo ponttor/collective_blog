@@ -36,8 +36,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     post posts_url, params: { post: @attrs }
     post = Post.find_by @attrs
     assert_redirected_to post_url(post)
-
-    assert_response :redirect
     assert { post }
   end
 
@@ -49,16 +47,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     post = Post.find_by @attrs
 
     assert_response :unprocessable_entity
-    assert { !post }
-  end
-
-  test 'create new post without body' do
-    sign_in users(:one)
-
-    @attrs[:body] = nil
-    post = Post.find_by @attrs
-    # assert_response :unprocessable_entity
-
     assert { !post }
   end
 end

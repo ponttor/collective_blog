@@ -6,7 +6,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:one)
     @post = posts(:one)
-    @comment = post_comments(:one)
     @attrs = {
       content: Faker::TvShows::TheITCrowd.quote
     }

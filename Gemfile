@@ -19,13 +19,16 @@ gem 'ancestry'
 gem 'devise'
 gem 'dotiw'
 gem 'faker'
-gem 'html2slim'
 gem 'minitest-power_assert'
 gem 'rubocop-rails', require: false
 gem 'simple_form'
 gem 'slim'
 gem 'slim_lint'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
+gem 'haml-rails', "~> 2.0"
+gem 'html2slim'
+gem 'html2haml'
+gem 'haml2slim'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

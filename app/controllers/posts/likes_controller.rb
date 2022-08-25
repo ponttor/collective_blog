@@ -5,28 +5,18 @@ module Posts
     before_action :authenticate_user!
 
     def create
-      @post = Post.find(params[:post_id])
-      unless current_user.likes.find_by(post: @post)
-        @like = current_user.likes.build
-        @like.post_id = params[:post_id]
-        @like.save
-      end
-      redirect_to @post
+      return if current_user.likes.find_by(post: resource_post)
+      @like = current_user.likes.build
+      @like.post_id = params[:post_id]
+      @like.save   
+      redirect_to resource_post   
     end
 
     def destroy
-      @post = Post.find(params[:post_id])
-      if current_user.likes.find_by(post: @post)
-        @like = current_user.likes.find_by(post: @post)
-        @like.destroy
-      end
-      redirect_to @post
-    end
-
-    private
-
-    def like_params
-      params.require(:post_like).permit(:post_id)
+      return unless current_user.likes.find_by(post: resource_post)
+      @like = current_user.likes.find_by(post: resource_post)
+      @like.destroy
+      redirect_to resource_post
     end
   end
 end

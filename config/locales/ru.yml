@@ -13,6 +13,7 @@ ru:
   all: Все статьи
   confirm_post: "Добавить Статью"
   confirm_comment: "Создать Комментарий"
+  requires: Обязательное поле
 
   messages:
     post_created: Пост успешно создан

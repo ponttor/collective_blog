@@ -2,14 +2,15 @@
 
 module Posts
   class CommentsController < ApplicationController
+    before_action :authenticate_user!
+
     def create
-      @post = Post.find(params[:post_id])
       @comment = current_user.comments.build(comment_params)
-      @comment.post_id = @post.id
+      @comment.post_id = resource_post.id
       if @comment.save
-        redirect_to post_path(@post), flash: { info: t('comment_created') }
+        redirect_to post_path(resource_post), flash: { info: t('comment_created') }
       else
-        redirect_to post_path(@post), flash: { danger: t('messages.comment_can_not_be_empty') }
+        redirect_to post_path(resource_post), flash: { danger: t('messages.comment_can_not_be_empty') }
 
       end
     end

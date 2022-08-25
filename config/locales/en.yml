@@ -12,6 +12,7 @@ en:
   all: "All posts"
   confirm_post: "Create post"
   confirm_comment: "Create comment"
+  requires: Requires
 
   messages:
     post_created: Post was successfully created
