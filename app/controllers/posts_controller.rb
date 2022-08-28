@@ -9,9 +9,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @category = @post.category
     @comment = @post.comments.build
-    # @like = current_user.likes.find_by(post: @post)
-    # @like = @post.likes.find_by(user_id: current_user.id)
+    @comments = @post.comments.includes(:user)
     @like = @post.likes.find_by(user_id: current_user)
   end
 

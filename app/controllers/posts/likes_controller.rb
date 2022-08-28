@@ -6,6 +6,7 @@ module Posts
 
     def create
       return if current_user.likes.find_by(post: resource_post)
+      
       @like = current_user.likes.build
       @like.post_id = params[:post_id]
       @like.save   

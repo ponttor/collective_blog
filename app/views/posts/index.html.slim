@@ -1,16 +1,16 @@
-.container
-  h1.mt-5
-    = t('title')
+.container-fluid
+  .row
+    h1.px-0.mt-4.mb-0
+      = t('title')
   .row
     - @posts.each do |post|
-      .col-12.mt-3
-        .card
-          .card-body
-            .card-title
-              = link_to post.title, post, class: "h5 link-dark text-decoration-none"
-      p.card-text
-        = post.body
-      p.text-muted.small
-        = "#{t('like_count')}: #{post.likes.count}"
-        = distance_of_time_in_words_to_now(post.created_at, highest_measure_only: true)
-        = post.creator.email
+      .col-12.px-0
+        .card.mt-3
+          .card-title.mx-3.mt-3
+            = link_to post.title, post, class: "h5 link-dark text-decoration-none"
+          p.card-body.py-0
+            = post.body
+          p.text-muted.small.mx-3
+            = "#{t('like_count')}: #{post.likes.count}"
+            = distance_of_time_in_words_to_now(post.created_at, highest_measure_only: true)
+            = post.creator.email

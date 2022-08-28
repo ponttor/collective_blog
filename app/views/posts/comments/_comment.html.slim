@@ -11,28 +11,17 @@
         = comment.content
         p
           - if user_signed_in?
-            |  <a class="" type="button" data-bs-toggle="collapse" data-bs-target="#comment-
-            = comment.id.to_s
-            | " aria-expanded="false" aria-controls="collapseExample"> 
-            = t('reply')
+            a.small(type="button" data-bs-toggle="collapse" data-bs-target="#comment-#{comment.id}" aria-expanded="false" aria-controls="#comment-#{comment.id}")
+              = t('reply')
           - else
-            |  <a class="d-block small text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#sign_out-
-            = comment.id.to_s
-            | " aria-expanded="false" aria-controls="collapseExample"> 
-            = t('reply')
-        |  <div class="collapse" id="sign_out-
-        = comment.id.to_s
-        | "> 
-        .card.card-body
-          div
-            span
-              - t('requires')
+            .card.card-body
+              div
+                span
+                  - t('requires')
             = link_to 'Sign in', user_session_path, class: "ms-1"
-      |  <div class="collapse" id="comment-
-      = comment.id.to_s
-      | "> 
-      .card.card-body
-        = render partial:'posts/comments/form', locals: {comment: comment, parent_id: comment.id, url: post_comments_path(post)}
+          .collapse(id="comment-#{comment.id}")
+            .card.card-body
+              = render partial:'posts/comments/form', locals: {comment: comment, parent_id: comment.id, url: post_comments_path(comment.post)}
 - nested_comments.each do |comment, nested_comments|
   .ms-4
     = render 'posts/comments/comment', comment: comment, nested_comments: nested_comments

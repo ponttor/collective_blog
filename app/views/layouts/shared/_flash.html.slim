@@ -1,8 +1,6 @@
 - if flash.any?
   - flash.each do |type, msg|
-    - if type == 'notice'
-      - type = 'success'
-    |  <div class="alert alert-
-    = type
-    | "> 
-    = msg
+    - type = 'success' if type == 'notice'
+    - type = 'danger' if type == 'alert'
+    .alert class="alert-#{type.to_s}"
+      = msg
