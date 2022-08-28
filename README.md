@@ -2,11 +2,9 @@
 [![Actions Status](https://github.com/ponttor/rails-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/ponttor/rails-project-lvl2/actions)
 [![Actions Status](https://github.com/ponttor/rails-project-lvl2/workflows/lint-test/badge.svg)](https://github.com/ponttor/rails-project-lvl2/actions)
 
-# Blog
+# Collective blog
 
-User can read posts and comments.  
-After registration he can create, modify and delete his own posts, as well as comment and like any post.  
-Comments can be modified and likes - be revoked.
+Collective blog – is a Habr.com analogue. Each user can create an entry and publish it in one of the general categories. Other users rate and comment on added posts.
 
 *Within educational program 'Ruby on Rails developer' by [Hexlet](https://ru.hexlet.io/)*
 
