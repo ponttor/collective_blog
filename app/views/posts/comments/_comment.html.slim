@@ -13,15 +13,13 @@
           - if user_signed_in?
             a.small(type="button" data-bs-toggle="collapse" data-bs-target="#comment-#{comment.id}" aria-expanded="false" aria-controls="#comment-#{comment.id}")
               = t('reply')
+            .collapse(id="comment-#{comment.id}")
+              .card.card-body
+                = render partial: 'posts/comments/form', locals: { comment: @comment, parent_id: comment.id, url: post_comments_path(comment.post) }
           - else
-            .card.card-body
-              div
-                span
-                  - t('requires')
-            = link_to 'Sign in', user_session_path, class: "ms-1"
-          .collapse(id="comment-#{comment.id}")
-            .card.card-body
-              = render partial:'posts/comments/form', locals: {comment: comment, parent_id: comment.id, url: post_comments_path(comment.post)}
+            hr
+            - t('requires')
+              = link_to t('header.signin'), user_session_path, class: 'ms-1'
 - nested_comments.each do |comment, nested_comments|
   .ms-4
     = render 'posts/comments/comment', comment: comment, nested_comments: nested_comments
