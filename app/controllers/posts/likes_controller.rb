@@ -14,9 +14,9 @@ module Posts
     end
 
     def destroy
-      return unless current_user.likes.find_by(post: resource_post)
-
       @like = current_user.likes.find_by(post: resource_post)
+      return unless @like
+
       @like.destroy
       redirect_to resource_post
     end

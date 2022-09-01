@@ -11,6 +11,8 @@
           p.card-body.py-0
             = post.body
           p.text-muted.small.mx-3
-            = "#{t('like_count')}: #{post.likes.count}"
-            = distance_of_time_in_words_to_now(post.created_at, highest_measure_only: true)
-            = post.creator.email
+            = "#{t('like_count')}: #{post.post_likes_count || 0}"
+            span.ms-2
+              = distance_of_time_in_words_to_now(post.created_at, highest_measure_only: true)
+            span.ms-2
+              = post.creator.email
