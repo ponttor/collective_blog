@@ -15,7 +15,7 @@ p.mb-4
       = distance_of_time_in_words_to_now(@post.created_at, true, highest_measure_only: true)
   .d-flex
     span
-      = @post.likes.count
+      = @post.post_likes_count
     div
       - if @like
         = button_to post_like_path(@post, @like), method: :delete, class: 'btn btn-sm' do
@@ -29,4 +29,4 @@ p.mb-4
 - if @post.comments.any?
   section.mb-4
     - @comments.arrange.each do |comment, nested_comments|
-      = render 'posts/comments/comment', comment: comment, comments: @comments, nested_comments: nested_comments, post: @post, form_comment: @form_comment
+      = render 'posts/comments/comment', comment: comment, nested_comments: nested_comments, post: @post, form_comment: @form_comment

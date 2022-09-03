@@ -18,8 +18,7 @@
                 = render partial: 'posts/comments/form', locals: { comment: form_comment, parent_id: comment.id, url: post_comments_path(post) }
           - else
             hr
-            = t('requires')
-              = link_to t('header.signin'), user_session_path, class: 'ms-1'
+            = link_to t('header.signin'), user_session_path, class: 'ms-1'
 - nested_comments.each do |inner_comment, nested_comments|
   .ms-4
-    = render 'posts/comments/comment', comment: inner_comment, comments: comments, nested_comments: nested_comments, post: post, form_comment: form_comment
+    = render 'posts/comments/comment', comment: inner_comment, nested_comments: nested_comments, post: post, form_comment: form_comment
